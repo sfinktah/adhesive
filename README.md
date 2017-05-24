@@ -1,30 +1,26 @@
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Adhesive
+----------------
+Adhesive is designed to be a very light, portable utility that allows you to easily call functions from any other language.
 
+Running examples
+---------------
+First, fire up a new terminal, create an empty folder for your project, go into that folder, and type:
 
-Hi there! Welcome to Cloud9 IDE!
+```bash
+git clone https://github.com/JacksonCoder/adhesive
+```
 
-To get you started with C/C++, we have created some small hello world
-applications and a Makefile.
+To compile the C++ program, type:
+```bash
+make app
+```
+To test the python script, type:
+```bash
+python test.py
+```
 
-Have a look at the files, and use the terminal to build them:
-
-    $ make
-    $ ./hello-c-world
-    $ ./hello-cpp-world
-
-We're sure you can take it from there. Go ahead and edit the code, 
-or add some new files. It's all up to you! 
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+The output should be:
+```bash
+_ADHESIVERETURN:({[ADHES:Hello
+]})
+```

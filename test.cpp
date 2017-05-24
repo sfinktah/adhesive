@@ -3,7 +3,6 @@
 
 std::string f()
 {
-    std::cout<<"Hello!"<<std::endl;
     return "Hello";
 }
 
