@@ -37,7 +37,7 @@ class a {
             if(std::string(argv[1]) == "___adhescall" && argc > 1)
             {
                 std::string fcall = argv[2];
-                std::cout<<"ADHES:"<<bindlist[fcall]()<<std::endl; //find better method to output
+                std::cout<<"_ADHESIVERETURN:({["<<bindlist[fcall]()<<"]})"; //find better method to output
             }
         }
     private:
