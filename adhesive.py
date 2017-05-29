@@ -14,6 +14,7 @@ class a:
             if not self.bindlist[args[2]]:
                 print "ADHESERROR: Function not binded"
             else:
-                print "ADHES:([{" + self.bindlist[args[2]]() + "}])"
-    def bind(self,func,bindword):
+                print "_ADHESIVERETURN:([{" + self.bindlist[args[2]]() + "}])"
+                exit()
+    def bind(self,bindword,func):
         self.bindlist[bindword] = func

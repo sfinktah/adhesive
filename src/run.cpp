@@ -51,6 +51,12 @@ void run(int argc,char** argv)
             std::string arg = "___adhescall " + func;
             out = exec((target+arg).c_str());
         }
+        else if (lang == "python")
+        {
+            std::string target = "python test.py ";
+            std::string arg = "___adhescall " + func;
+            out = exec((target+arg).c_str());
+        }
         std::cout << out;
     }
 }

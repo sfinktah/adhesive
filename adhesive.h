@@ -7,6 +7,7 @@
 #include <string>
 #include <array>
 #include <functional>
+#include <regex>
 using namespace std;
 std::string exec(const char* cmd) {
     std::array<char, 128> buffer;
@@ -23,10 +24,12 @@ namespace adhesive {
 //template <typename t>
 class a {
     public:
-        std::string call(std::string func,std::string lang)
+        std::string call(std::string func,std::string lang) //lang should maybe be enum?
         {
-            //return exec("./adhesive call " + value);
-            return "not implemented.";
+            std::smatch matches;
+            std::string res = exec(("./adhesive call " + func + " " + lang).c_str());
+            std::regex_search(res,matches,std::regex("_ADHESIVERETURN:\\(\\[\\{(.+)\\}\\]\\)"));
+            return matches[1];
         }
         void bind(std::string value,std::function<std::string()> f )
         {
@@ -34,10 +37,14 @@ class a {
         }
         void handle(int argc,char** argv)
         {
-            if(std::string(argv[1]) == "___adhescall" && argc > 1)
+            if(argc > 1)
             {
+                if(std::string(argv[1]) == "___adhescall" )
+                {
                 std::string fcall = argv[2];
                 std::cout<<"_ADHESIVERETURN:({["<<bindlist[fcall]()<<"]})"; //find better method to output
+                exit(0);
+                }
             }
         }
     private:
