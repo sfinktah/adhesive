@@ -6,4 +6,4 @@ def other_thing():
 adhesiv = adhes.a()
 adhesiv.bind("other_thing",other_thing)
 adhesiv.handle(sys.argv)
-#print adhesiv.call("thing","cpp")
+print adhesiv.call("thing","cpp","test")

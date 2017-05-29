@@ -44,19 +44,33 @@ void run(int argc,char** argv)
     {
         std::string func = data[1];
         std::string lang = data[2];
+        std::string target = data[3];
         std::string out;
         if(lang == "cpp")
         {
-            std::string target = "./test ";
+            target = "./" + target + " ";
             std::string arg = "___adhescall " + func;
             out = exec((target+arg).c_str());
         }
         else if (lang == "python")
         {
-            std::string target = "python test.py ";
-            std::string arg = "___adhescall " + func;
+            std::smatch matches;
+            std::regex_search(target,matches,std::regex("\\.py"));
+            if(matches.size() <= 0) 
+            {
+            target = "python " + target + ".py ";
+            }
+            else
+            {
+                target = "python " + target;
+            }
+            std::string arg = " ___adhescall " + func;
+            std::cout<<target+arg<<std::endl;
             out = exec((target+arg).c_str());
         }
+        //Check for error
+        
+        
         std::cout << out;
     }
 }

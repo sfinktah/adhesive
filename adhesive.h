@@ -24,10 +24,10 @@ namespace adhesive {
 //template <typename t>
 class a {
     public:
-        std::string call(std::string func,std::string lang) //lang should maybe be enum?
+        std::string call(std::string func,std::string lang,std::string target) //lang should maybe be enum?
         {
             std::smatch matches;
-            std::string res = exec(("./adhesive call " + func + " " + lang).c_str());
+            std::string res = exec(("./adhesive call " + func + " " + lang + " " + target).c_str());
             std::regex_search(res,matches,std::regex("_ADHESIVERETURN:\\(\\[\\{(.+)\\}\\]\\)"));
             return matches[1];
         }
@@ -42,7 +42,11 @@ class a {
                 if(std::string(argv[1]) == "___adhescall" )
                 {
                 std::string fcall = argv[2];
-                std::cout<<"_ADHESIVERETURN:({["<<bindlist[fcall]()<<"]})"; //find better method to output
+                if(bindlist.find(fcall) == bindlist.end())
+                {
+                    std::cout<<"ADHESERROR:(Function not binded)"<<std::endl;
+                }
+                else std::cout<<"_ADHESIVERETURN:({["<<bindlist[fcall]()<<"]})"; //find better method to output
                 exit(0);
                 }
             }
