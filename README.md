@@ -10,6 +10,13 @@ First, fire up a new terminal, create an empty folder for your project, go into 
 git clone https://github.com/JacksonCoder/adhesive
 ```
 
+To set up the node enviroment (make sure you have node installed first) type:
+```bash
+npm install child_process
+```
+which should get all script dependencies installed.
+
+
 To compile the C++ program, type:
 ```bash
 make app
@@ -21,6 +28,25 @@ python test.py
 
 The output should be:
 ```bash
-_ADHESIVERETURN:({[ADHES:Hello
-]})
+Hello
+```
+
+To test the C++ executable, type:
+```bash
+./test
+```
+
+The output should be
+```bash
+hello?
+```
+
+To test the JS script, type:
+```bash
+node test.js
+```
+
+The output should be
+```bash
+Hello
 ```

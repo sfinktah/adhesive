@@ -28,7 +28,7 @@ class a {
         {
             std::smatch matches;
             std::string res = exec(("./adhesive call " + func + " " + lang + " " + target).c_str());
-            std::regex_search(res,matches,std::regex("_ADHESIVERETURN:\\(\\[\\{(.+)\\}\\]\\)"));
+            std::regex_search(res,matches,std::regex("_ADHESIVERETURN:\\(\\{\\[(.+)\\]\\}\\)"));
             return matches[1];
         }
         void bind(std::string value,std::function<std::string()> f )
